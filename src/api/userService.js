@@ -1,7 +1,6 @@
 import axios from "axios";
 
-const API_URL = "http://localhost:5000/api/users";
-
+const API_URL = "https://maison-backend-a63s.onrender.com/api/users";
 
 export const registerUser = async (userData) => {
   try {
@@ -12,16 +11,14 @@ export const registerUser = async (userData) => {
   }
 };
 
-
 export const loginUser = async (credentials) => {
   try {
-    const response = await axios.post(`${API_URL}/login`, credentials); 
+    const response = await axios.post(`${API_URL}/login`, credentials);
     return response.data;
   } catch (error) {
     throw error.response?.data || { message: "Erreur serveur" };
   }
-}
-
+};
 
 export const verifyOtp = async (otpData) => {
   try {
@@ -32,16 +29,14 @@ export const verifyOtp = async (otpData) => {
   }
 };
 
-
 export const forgotPassword = async (emailData) => {
   try {
-    const response = await axios.post(`${API_URL}/forgot-password`, emailData);     
+    const response = await axios.post(`${API_URL}/forgot-password`, emailData);
     return response.data;
   } catch (error) {
     throw error.response?.data || { message: "Erreur serveur" };
-  }     
-
-}
+  }
+};
 
 export const resetPassword = async (resetData) => {
   try {
@@ -49,5 +44,5 @@ export const resetPassword = async (resetData) => {
     return response.data;
   } catch (error) {
     throw error.response?.data || { message: "Erreur serveur" };
-  } 
-};  
+  }
+};
